@@ -2926,20 +2926,12 @@ $parcel$ReactRefreshHelpers$6ee2.prelude(module);
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
+var _mainView = require("./components/main-view/main-view");
 //Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
-//Main component (will eventualy use al the others)
+//Main component (will eventualy use all the others)
 const MyFlixApplication = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "my-flix",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Good morning"
-        }, void 0, false, {
-            fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\index.jsx",
-            lineNumber: 10,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
         fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\index.jsx",
         lineNumber: 9,
         columnNumber: 9
@@ -2952,7 +2944,7 @@ const root = (0, _client.createRoot)(container);
 //Tells React to render your app in the root DOM element
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
     fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\index.jsx",
-    lineNumber: 20,
+    lineNumber: 18,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -2963,7 +2955,7 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"kfOS9","react-dom/client":"7YVsB","./index.scss":"jtx6p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"j6plG"}],"kfOS9":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"kfOS9","react-dom/client":"7YVsB","./index.scss":"jtx6p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"j6plG","./components/main-view/main-view":"8M8om"}],"kfOS9":[function(require,module,exports) {
 "use strict";
 module.exports = require("de40e27d748cd8ea");
 
@@ -27281,6 +27273,370 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"2cc6030d0516c0de":"6QVwf"}]},["e1lxk","eR73E","g8w1p"], "g8w1p", "parcelRequireaec4")
+},{"2cc6030d0516c0de":"6QVwf"}],"8M8om":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c3cf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c3cf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    const [movies, setMovies] = (0, _react.useState)([
+        {
+            id: 1,
+            Title: "Avatar",
+            Description: "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+            Genre: {
+                Name: "Action",
+                Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+            },
+            Director: {
+                Name: "James Cameron",
+                Bio: "James Francis Cameron is a Canadian filmmaker and a major figure in the post-New Hollywood era.",
+                Birth: "1954"
+            },
+            ImagePath: "../../../movie_imgs/avatar.png",
+            Actors: [
+                "Sam Worthington",
+                "Zoe Saldana",
+                "Sigourney Weaver"
+            ],
+            Featured: true
+        },
+        {
+            id: 2,
+            Title: "I Am Legend",
+            Description: "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
+            Genre: {
+                Name: "Thriller",
+                Description: "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+            },
+            Director: {
+                Name: "Francis Lawrence",
+                Bio: "Francis Lawrence is an Austrian-born American filmmaker and producer.",
+                Birth: "1971"
+            },
+            ImagePath: "../../../movie_imgs/i_am_legend.png",
+            Actors: [
+                "Will Smith",
+                "Alice Braga"
+            ],
+            Featured: true
+        },
+        {
+            id: 3,
+            Title: "300",
+            Description: "King Leonidas of Sparta and a force of 300 men fight the Persians at Thermopylae in 480 B.C.",
+            Genre: {
+                Name: "Action",
+                Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+            },
+            Director: {
+                Name: "Zack Snyder",
+                Bio: "Zachary Edward Snyder is an American film director, producer, screenwriter, and cinematographer.",
+                Birth: "1966"
+            },
+            ImagePath: "../../../movie_imgs/300.png",
+            Actors: [
+                "Gerard Butler"
+            ],
+            Featured: true
+        },
+        {
+            id: 4,
+            Title: "The Avengers",
+            Description: "Earth''s mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity.",
+            Genre: {
+                Name: "Action",
+                Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+            },
+            Director: {
+                Name: "Joss Whedon",
+                Bio: "Joseph Hill Whedon is an American filmmaker, composer, and comic book writer.",
+                Birth: "1964"
+            },
+            ImagePath: "../../../movie_imgs/the_avengers.png",
+            Actors: [
+                "Robert Downey Jr.",
+                "Chris Evans",
+                "Chris Hemsworth"
+            ],
+            Featured: true
+        },
+        {
+            id: 5,
+            Title: "Interstellar",
+            Description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.",
+            Genre: {
+                Name: "Sci-Fi",
+                Description: "Science fiction (sometimes shortened to sf or sci-fi) is a genre of speculative fiction, which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life."
+            },
+            Director: {
+                Name: "Christopher Nolan",
+                Bio: "British film director and writer acclaimed for his noirish visual aesthetic and unconventional, often highly conceptual narratives.",
+                Birth: "1970"
+            },
+            ImagePath: "../../../movie_imgs/interstellar.png",
+            Actors: [
+                "Matthew McConaughey",
+                "Anne Hathaway"
+            ],
+            Featured: true
+        }
+    ]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(BookView, {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
+    }, void 0, false, {
+        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\main-view\\main-view.jsx",
+        lineNumber: 96,
+        columnNumber: 7
+    }, undefined);
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "The list is empty!"
+    }, void 0, false, {
+        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\main-view\\main-view.jsx",
+        lineNumber: 101,
+        columnNumber: 12
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
+                }
+            }, movie.id, false, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\main-view\\main-view.jsx",
+                lineNumber: 107,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
+        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\main-view\\main-view.jsx",
+        lineNumber: 105,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "eUJyUMKV61NOIKgzXbajX6rvaiM=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
+
+  $parcel$ReactRefreshHelpers$c3cf.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"kfOS9","react":"9cbBD","../movie-card/movie-card":"5ErrN","../movie-view/movie-view":"iu7U2","@parcel/transformer-js/src/esmodule-helpers.js":"8f7LW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"j6plG"}],"5ErrN":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$28b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$28b3.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieCard = ({ movie , onMovieClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>{
+            onMovieClick(movie);
+        },
+        children: movie.Title
+    }, void 0, false, {
+        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-card\\movie-card.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieCard;
+var _c;
+$RefreshReg$(_c, "MovieCard");
+
+  $parcel$ReactRefreshHelpers$28b3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"kfOS9","@parcel/transformer-js/src/esmodule-helpers.js":"8f7LW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"j6plG"}],"8f7LW":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"iu7U2":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$427c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$427c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieView = ({ movie , onBackClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: movie.ImagePath
+                }, void 0, false, {
+                    fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                    lineNumber: 5,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 8,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Title
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 9,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Description: "
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Description
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Genre "
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Genre.Name
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Director: "
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 20,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Director.Name
+                    }, void 0, false, {
+                        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                        lineNumber: 21,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 19,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: onBackClick,
+                children: "Back"
+            }, void 0, false, {
+                fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+                lineNumber: 23,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "C:\\Users\\user\\Dropbox\\PC\\Documents\\CareerFoundry\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieView;
+var _c;
+$RefreshReg$(_c, "MovieView");
+
+  $parcel$ReactRefreshHelpers$427c.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"kfOS9","@parcel/transformer-js/src/esmodule-helpers.js":"8f7LW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"j6plG"}]},["e1lxk","eR73E","g8w1p"], "g8w1p", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b231d955.js.map
