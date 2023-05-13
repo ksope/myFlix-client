@@ -24,3 +24,17 @@ export const MovieView = ({ movie, onBackClick }) => {
     </div>
   );
 };
+
+// Here is where we define all the props constraints for the MovieView
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    author: PropTypes.string
+    genre: PropTypes.shape({
+      name: PropTypes.string,
+      Description: PropTypes.string
+    })
+  }).isRequired,
+  onBackClick: PropTypes.func.isRequired
+};
