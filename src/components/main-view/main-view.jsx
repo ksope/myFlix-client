@@ -8,20 +8,17 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
 useEffect(() => {
-    fetch("https://openlibrary.org/search.json?q=star+wars")
+    fetch("https://myflixapp-220423.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const booksFromApi = data.docs.map((doc) => {
+        const moviesFromApi = data.movies.map((movie) => {
           return {
-            id: doc.key,
-            title: doc.title,
-            image:
-`https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            author: doc.author_name?.[0]
+            id: movie.key,
+            title: movie.Title
           };
         });
 
-        setBooks(booksFromApi);
+        setMovies(moviesFromApi);
       });
   }, []);
 
