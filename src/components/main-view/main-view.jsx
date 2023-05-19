@@ -4,20 +4,12 @@ import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
 
 useEffect(() => {
     fetch("https://myflixapp-220423.herokuapp.com/movies")
-      .then((response) => response.json())
-      .then((data) => {
-        const moviesFromApi = data.movies.map((movie) => {
-          return {
-            id: movie.key,
-            title: movie.Title
-          };
-        });
-
+      .then((res)=> {
+        const moviesFromApi = res.data;
         setMovies(moviesFromApi);
       });
   }, []);
@@ -39,7 +31,7 @@ useEffect(() => {
     <div>
       {movies.map((movie) => (
         <MovieCard
-          key={movie.id}
+          key={movie._id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
