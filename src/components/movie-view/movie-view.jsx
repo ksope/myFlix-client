@@ -1,3 +1,6 @@
+// Here you import the PropTypes library
+import PropTypes from "prop-types";
+
 export const MovieView = ({ movie, onBackClick }) => {
   return (
     <div>
@@ -29,10 +32,19 @@ export const MovieView = ({ movie, onBackClick }) => {
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    author: PropTypes.string
-    genre: PropTypes.shape({
-      name: PropTypes.string,
+    ImagePath: PropTypes.string,
+    Description: PropTypes.string,
+    Director: PropTypes.shape({
+      Name: PropTypes.string,
+      Bio: PropTypes.string,
+      Birth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
+      ])
+    }),
+    Genre: PropTypes.shape({
+      Name: PropTypes.string,
       Description: PropTypes.string
     })
   }).isRequired,
