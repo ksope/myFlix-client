@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Container, Button, Form, CardGroup } from "react-bootstrap";
 
 export const SignupView = () => {
 
@@ -36,7 +35,15 @@ export const SignupView = () => {
 
   };
   return (
-    <Form onSubmit={handleSubmit}>
+    <Container>
+      <Row>
+        <Col ></Col>
+        <Col xs={8} md={4}>
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Card.Title>Please Register</Card.Title>
+            <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control
@@ -44,6 +51,7 @@ export const SignupView = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          placeholder="Enter your username"
           minLength="3" 
         />
       </Form.Group>
@@ -55,6 +63,8 @@ export const SignupView = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder="Enter your password"
+          minLength="8"
         />
       </Form.Group>
 
@@ -65,6 +75,7 @@ export const SignupView = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Enter your email address"
           minLength="3" 
         />
       </Form.Group>
@@ -76,11 +87,24 @@ export const SignupView = () => {
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
+          placeholder="Enter your date of birth"
         />
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>
+
+            </Card.Body>
+            
+          </Card>
+          
+
+        </CardGroup>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
+    
   );
 };
