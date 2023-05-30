@@ -3,6 +3,8 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import Row from "react-bootstrap/Row";
+import Col from 'react-bootstrap/Col';
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
@@ -26,68 +28,38 @@ export const MainView = () => {
       });
   }, [token]);
 
-  if (!user) {
-    return (
-      <>
-      <LoginView
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
-      or
-      <SignupView />
-      </>
-      
-    );
-  }
+return (
+      <Row className="justify-content-md-center"> 
+        {!user ? (
 
-  if (selectedMovie) {
-    let similarMovies = movies.filter((movie) =>
-        movie.Genres.includes(selectedMovie.Genres[0]) && movie._id !== selectedMovie._id);
-
-    return (
-      <>
-      <MovieView
-        movie={selectedMovie}
-        onBackClick={() => setSelectedMovie(null)}
-      />
-      <br />
-      <h2>Similar Movies</h2>
-      {similarMovies.length > 0 && (
-        <div>
-                {similarMovies.map((movie) => (
-                    <MovieCard
-                      key={movie._id}
-                      movie={movie}
-                      onMovieClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-                      }}
-                    />
-                ))}
-                </div>
-            )}
-      </>
-
-    );
-  }
-
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie._id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-      <button onClick={() => { setUser(null); setToken(null); }}>Logout</button>
-    </div>
+            <Col md={5}>
+            <LoginView onLoggedIn={(user) => setUser(user)} />
+            or
+            <SignupView />
+          </Col>
+        ) : selectedBook ? (
+          <Col md={8}>
+            <BookView
+              book={selectedBook}
+              onBackClick={() => setSelectedBook(null)}
+            />
+          </Col>
+        ) : books.length === 0 ? (
+          <div>The list is empty!</div>
+        ) : (
+          <>
+            {books.map((movie) => (
+              <Col className="mb-5" key={book.id} md={3}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMpvie);
+                }}
+              />
+            </Col>
+            ))}
+          </>
+        )}
+      </Row>
   );
 };
