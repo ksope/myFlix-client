@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Cabin+Sketch&family=Lato&family=Uncial+Antiqua&display=swap');
+@import '~bootstrap/scss/bootstrap.scss';
 
-$color: steelblue;
-
-.my-flix {
-    color: $color;
-}
-
-div #root{
-    font-family: 'Averia Sans Libre';
-}
+$primary: SeaGreen;
+$body-bg: Honeydew;
