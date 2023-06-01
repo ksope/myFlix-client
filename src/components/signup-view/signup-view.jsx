@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container, Button, Form, CardGroup } from "react-bootstrap";
 
 export const SignupView = () => {
 
@@ -34,45 +35,76 @@ export const SignupView = () => {
 
   };
   return (
-    <form onSubmit={handleSubmit}>
-        <label>
-        Username:
-        <input
+    <Container>
+      <Row>
+        <Col ></Col>
+        <Col xs={8} md={4}>
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Card.Title>Please Register</Card.Title>
+            <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formUsername">
+        <Form.Label>Username:</Form.Label>
+        <Form.Control
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          minLength="3"
+          placeholder="Enter your username"
+          minLength="3" 
         />
-      </label>
-      <label>
-        Password:
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder="Enter your password"
+          minLength="8"
         />
-      </label>
-      <label>
-        Email:
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Enter your email address"
+          minLength="3" 
         />
-      </label>
-      <label>
-        Birthday:
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="formBirthday">
+        <Form.Label>Birthday:</Form.Label>
+        <Form.Control
           type="date"
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
+          placeholder="Enter your date of birth"
         />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+
+            </Card.Body>
+            
+          </Card>
+          
+
+        </CardGroup>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
+    
   );
 };
