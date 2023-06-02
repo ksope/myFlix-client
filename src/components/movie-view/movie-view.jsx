@@ -1,32 +1,33 @@
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
 
 export const MovieView = ({ movie, onBackClick }) => {
+  const { movieId } = useParams();
+
+  const movie = movies.find((b) => b.id === bookId);
+
   return (
     <div>
       <div>
-        <img src={movie.ImagePath} />
+        <img className="w-100" src={movie.ImagePath} />
       </div>
       <div>
         <span>Title: </span>
-        <span>{movie.Title}</span>
+        <span>{movie.title}</span>
       </div>
       <div>
         <span>Description: </span>
         <span>{movie.Description}</span>
       </div>
-      <div>
-        <span>Genre </span>
-        <span>{movie.Genre.Name}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.Director.Name}</span>
-      </div>
-      <button onClick={onBackClick}>Back</button>
+      <Link to={`/`}>
+        <button className="back-button">Back</button>
+      </Link>
     </div>
   );
 };
+
 
 // Here is where we define all the props constraints for the MovieView
 MovieView.propTypes = {
