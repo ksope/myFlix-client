@@ -7,7 +7,7 @@ export default function FavoriteMovies({favoriteMovieList}) {
         <h2>Favourite Movies</h2>
         {favoriteMovieList.map((movies)=> {
             return(
-                <div key={movies.id}>
+                <div key={movies._id}>
                     <img src={movies.ImagePath} />
                     <Link to={`/movies/${movies._id}`}>
                         <h4>{movies.Title}</h4>
