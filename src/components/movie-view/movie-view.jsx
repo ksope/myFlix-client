@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies, onBackClick }) => {
   const { movieId } = useParams();
 
-  const movie = movies.find((b) => b.id === bookId);
+  const movie = movies.find((m) => m._id === movieId);
 
   return (
     <div>
@@ -15,13 +15,13 @@ export const MovieView = ({ movie, onBackClick }) => {
       </div>
       <div>
         <span>Title: </span>
-        <span>{movie.title}</span>
+        <span>{movie.Title}</span>
       </div>
       <div>
         <span>Description: </span>
         <span>{movie.Description}</span>
       </div>
-      <Link to={`/`}>
+      <Link to={'/'}>
         <button className="back-button">Back</button>
       </Link>
     </div>
