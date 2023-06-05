@@ -4,7 +4,7 @@ export default function UpdateUser({handleSubmit,handleUpdate}) {
   return (
     <div>
         <form className='profile-form' onSubmit={(e)=>handleSubmit(e)}>
-        <h2>Want to change sme info?</h2>
+        <h2>Want to change some info?</h2>
         <label>Username:</label>
         <input
          type="text"
