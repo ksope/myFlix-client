@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import Container from 'react-bootstrap/Container';
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
