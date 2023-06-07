@@ -19,6 +19,9 @@ export default function ProfileView({movies, onUpdatedUserInfo}) {
     };
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+
+        
 
     };
 
