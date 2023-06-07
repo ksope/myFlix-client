@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
 
-export const MovieView = ({ movies, onBackClick }) => {
+export const MovieView = ({ movies}) => {
   const { movieId } = useParams();
 
   const movie = movies.find((m) => m._id === movieId);
