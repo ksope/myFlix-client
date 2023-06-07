@@ -9,7 +9,7 @@ export const SignupView = () => {
     const [birthday, setBirthday] = useState("");
 
   const handleSubmit = (e)=>{
-    event.preventDefault();
+    e.preventDefault();
 
     const data = {
       Username: username,
