@@ -8,4 +8,11 @@ export default function UserInfo({email, name}) {
     <p>Email: {email} </p>
     </>
   )
+
+
+  // Here is where we define all the props constraints for the UserInfo
+UserInfo.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+};
 }
