@@ -6,6 +6,11 @@ import {Link} from "react-router-dom";
 export const MovieCard = ({ movie}) => {
   return (
     <Card className="h-100">
+      {movie.Featured ? (
+          <Card.Header className="card-header">Featured</Card.Header>
+        ) : (
+          false
+        )}
       <Card.Img variant="top" src={movie.ImagePath} alt={movie.Title} />
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>

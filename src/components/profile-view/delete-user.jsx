@@ -2,7 +2,9 @@
 
 import React from 'react'
 
-export default function DeleteUser({ user, token, onLoggedOut }) {
+export default function DeleteUser({ user, token}) {
+      const [user, setUser] = userState();
+      const [token, setToken] = userState();
     
     const deleteAccount = () => {
         fetch(`https://myflixapp-220423.herokuapp.com/user/${user.Username}`, {
@@ -20,6 +22,9 @@ export default function DeleteUser({ user, token, onLoggedOut }) {
         alert("oops, seems something went wrong");
         console.log(e);
       });
+      setUser(null);
+      setToken(null);
+      localStorage.clear();
     };
 
       return (

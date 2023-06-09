@@ -59,7 +59,7 @@ return (
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView onLoggedIn={(user, token) => {setUser(user); setToken(token);}} />
                   </Col>
                 )}
               </>
@@ -76,7 +76,7 @@ return (
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <movieView movies={movies} />
+                    <movieView movies={movies} user={user} />
                   </Col>
                 )}
               </>
@@ -102,6 +102,26 @@ return (
               </>
             }
           />
+            <Route
+              path="/user"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <Col>
+                      <ProfileView
+                        movies={movies}
+                        onLoggedOut={(user) => {setUser(null); setToken(null); localStorage.clear();}}
+                        token={token}
+                        user={user}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+          
         </Routes>
       </Row>
     </BrowserRouter>

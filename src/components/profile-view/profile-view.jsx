@@ -8,41 +8,32 @@ import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
 import { MovieCard } from '../movie-card/movie-card';
+import DeleteUser from './delete-user';
 
-export default function ProfileView({movies, onUpdatedUserInfo}) {
+export default function ProfileView({movies, user, token, onLoggedOut}) {
     const [user, setUser] = userState();
 
-    const favoriteMovieList = movies.filter(m => user.FavoriteMovies.includes(m._id));
+    
 
-    const getUser = ()=> {
+    const refreshUser = user => {
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+    } 
 
-    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        
-
-    };
-
-    const handleUpdate = (e) => {
-
-    };
-
-    const removeFav = (id) => {
-
-    };
 
     useEffect (()=> {
+        refreshUser(user);
 
-    }, [])
+    }, [user])
 
 
 
   return (
-    <div><UserInfo name = {user.Username} email = {user.email} />
-    <FavoriteMovies favoriteMovieList={favoriteMovieList} />
-    <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+    <div><UserInfo name = {user.Username} email = {user.Email} />
+    <FavoriteMovies favoriteMovieList={user} />
+    <UpdateUser user={user} token={token} />
+    <DeleteUser user={user} token={token} />
     
     
     </div>

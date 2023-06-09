@@ -2,11 +2,37 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
+import { response } from "express";
 
-export const MovieView = ({ movies}) => {
+export const MovieView = ({ movies, user }) => {
   const { movieId } = useParams();
 
   const movie = movies.find((m) => m._id === movieId);
+
+  const addMovieToFavorite = (movie) => {
+    if(!user.FavouriteMovies.includes(movie._id))
+    {fetch(`https://myflixapp-220423.herokuapp.com/user/${user.Username}/movies/${movie._id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+  }).then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        alert("oops, seems something went wrong");
+        console.log(e);
+        response.status(500).send("Error" + e);
+      });
+    }
+    else{
+      console.log("movie already on Favorite list");
+      alert(`${movie.Title} already on the list of favorite movies`)
+    }
+        };
 
   return (
     <div>
@@ -22,8 +48,15 @@ export const MovieView = ({ movies}) => {
         <span>{movie.Description}</span>
       </div>
       <Link to={'/'}>
-        <button className="back-button">Back</button>
+        <Button className="back-button">Back</Button>
       </Link>
+          <Button
+          onClick={addMovieToFavorite}
+          variant="secondary"
+        >
+          Add to your List of Favorites
+        </Button>
+
     </div>
   );
 };
