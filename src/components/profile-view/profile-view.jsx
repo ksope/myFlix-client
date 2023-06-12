@@ -1,41 +1,46 @@
-import React, {userState, userEffect, useEffect} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import './profile-view.scss';
-import UserInfo from './user-info';
-import FavoriteMovies from './favorite-movies';
-import UpdateUser from './update-user';
-import { MovieCard } from '../movie-card/movie-card';
-import DeleteUser from './delete-user';
+import React, { useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import "./profile-view.scss";
+import UserInfo from "./user-info";
+import FavoriteMovies from "./favorite-movies";
+import UpdateUser from "./update-user";
+import DeleteUser from "./delete-user";
 
-export default function ProfileView({movies, user, token, onLoggedOut}) {
-    const [user, setUser] = userState();
+export default function ProfileView({
+    movies,
+    profileuser,
+    setProfileuser,
+    profiletoken,
+    setProfiletoken,
+    onLoggedOut,
+}) {
+    useEffect(() => {
+        setProfileuser(profileuser);
+        localStorage.setItem("setProfileuser", JSON.stringify(profileuser));
+    }, [profileuser]);
 
-    
-
-    const refreshUser = user => {
-        setUser(user);
-        localStorage.setItem("user", JSON.stringify(user));
-    } 
-
-
-
-    useEffect (()=> {
-        refreshUser(user);
-
-    }, [user])
-
-
-
-  return (
-    <div><UserInfo name = {user.Username} email = {user.Email} />
-    <FavoriteMovies favoriteMovieList={user} />
-    <UpdateUser user={user} token={token} />
-    <DeleteUser user={user} token={token} />
-    
-    
-    </div>
-  )
+    return (
+        <div>
+            <UserInfo name={profileuser.Username} email={profileuser.Email} />
+            <FavoriteMovies
+                movieList={movies}
+                favuser={profileuser}
+                favtoken={profiletoken}
+            />
+            <UpdateUser
+                updateuser={profileuser}
+                setUpdateuser={setProfileuser}
+                updatetoken={profiletoken}
+                setUpdatetoken={setProfiletoken}
+            />
+            <DeleteUser
+                deleteuser={profileuser}
+                setDeleteuser={setProfileuser}
+                deletedtoken={profiletoken}
+                setDeletedtoken={setProfiletoken}
+            />
+        </div>
+    );
 }
