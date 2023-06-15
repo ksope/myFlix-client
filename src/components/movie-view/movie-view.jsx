@@ -1,14 +1,25 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+
 // Here you import the PropTypes library
 import PropTypes from "prop-types";
-import { response } from "express";
 
 export const MovieView = ({ movies, user, token }) => {
     const { movieId } = useParams();
 
     const movie = movies.find((m) => m._id === movieId);
+
+    //use the navigate library to navigate to previous route
+    const navigate = useNavigate();
+    const returnBack = () => {
+        if (window.history.state && window.history.state.idx > 0) {
+            navigate(-1);
+        } else {
+            navigate("/", { replace: true }); // the current entry in the history stack will be replaced with the new one with { replace: true }
+        }
+    };
 
     const addMovieToFavorite = (movie) => {
         if (!user.FavouriteMovies.includes(movie._id)) {
@@ -30,7 +41,6 @@ export const MovieView = ({ movies, user, token }) => {
                 .catch((e) => {
                     alert("oops, seems something went wrong");
                     console.log(e);
-                    response.status(500).send("Error" + e);
                 });
         } else {
             console.log("movie already on Favorite list");
@@ -52,15 +62,26 @@ export const MovieView = ({ movies, user, token }) => {
                 <span>{movie.Title}</span>
             </div>
             <div>
+                <span>Genre: </span>
+                <span>{movie.Genre.Name}</span>
+            </div>
+            <div>
                 <span>Description: </span>
                 <span>{movie.Description}</span>
             </div>
-            <Link to={"/"}>
-                <Button className="back-button">Back</Button>
-            </Link>
+            <div>
+                <span>Director: </span>
+                <span>{movie.Director.Name}</span>
+            </div>
+            <Button onClick={returnBack} variant="secondary">
+                Go Back
+            </Button>
             <Button onClick={addMovieToFavorite} variant="secondary">
                 Add to your List of Favorites
             </Button>
+            <Link to={"/"}>
+                <Button className="back-button">Return to Home</Button>
+            </Link>
         </div>
     );
 };

@@ -2,7 +2,6 @@
 import { Container, Button, Form, Card, CardGroup } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import React, { useEffect } from "react";
 
 export default function UpdateUser({
     updateuser,
@@ -10,39 +9,34 @@ export default function UpdateUser({
     updatetoken,
     setUpdatetoken,
 }) {
-    useEffect =
-        (() => {
-            setUpdateuser(updateuser);
-        },
-        [updateuser]);
-
     const handleSubmit = (e) => {
         //this prevents default behaviour of the form which is to reload the page
         e.preventDefault();
 
-        let data = { ...updateuser };
-
-        fetch(
-            `https://myflixapp-220423.herokuapp.com/user/${updateuser.Username}`,
-            {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${updatetoken}`,
-                },
-                body: JSON.stringify(data),
-            }
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((e) => {
-                alert("oops, seems something went wrong");
-                console.log(e);
-            });
-        alert("Your details have been updated");
-        window.location.reload();
+        if (updateuser && updatetoken) {
+            let data = { ...updateuser };
+            fetch(
+                `https://myflixapp-220423.herokuapp.com/user/${updateuser.Username}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${updatetoken}`,
+                    },
+                    body: JSON.stringify(data),
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((e) => {
+                    alert("oops, seems something went wrong");
+                    console.log(e);
+                });
+            alert("Your details have been updated");
+            window.location.reload();
+        }
     };
 
     return (

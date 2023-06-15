@@ -22,14 +22,15 @@ export default function DeleteUser({
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                        setDeleteuser(null);
+                        setDeletedtoken(null);
+                        localStorage.clear();
             })
             .catch((e) => {
                 alert("oops, seems something went wrong");
                 console.log(e);
             });
-        setDeleteuser(null);
-        setDeletedtoken(null);
-        localStorage.clear();
+
     };
 
     return (

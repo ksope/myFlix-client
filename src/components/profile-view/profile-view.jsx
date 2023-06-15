@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
@@ -16,11 +15,6 @@ export default function ProfileView({
     setProfiletoken,
     onLoggedOut,
 }) {
-    useEffect(() => {
-        setProfileuser(profileuser);
-        localStorage.setItem("setProfileuser", JSON.stringify(profileuser));
-    }, [profileuser]);
-
     return (
         <div>
             <UserInfo name={profileuser.Username} email={profileuser.Email} />
@@ -41,6 +35,14 @@ export default function ProfileView({
                 deletedtoken={profiletoken}
                 setDeletedtoken={setProfiletoken}
             />
+            <Button
+                className="btn-secondary"
+                as={Link}
+                to={`/`}
+                variant="secondary"
+            >
+                Back
+            </Button>
         </div>
     );
 }
